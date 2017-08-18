@@ -1,0 +1,13 @@
+先安装nodejs和npm和cnpm和cli
+
+一下安装cnpm和@anglar/cli
+npm i -g cnpm
+cnpm i -g @angular/cli
+cnpm install
+ng serve
+
+//安装上传组件
+npm install ng2-file-upload@1.2.1
+
+//安装图表插件
+npm install ng2-charts
