@@ -1,0 +1,29 @@
+<div class="panel-body">
+  <label>非模块变量：</label>
+  <input type="text" name="user.userName" [(ngModel)]="kuer" value="{{ kuer }}" placeholder="请输入用户名称">
+  <span>私有变量:{{ kuer }}</span>
+  <h2>模块共有变量：</h2>
+  <form #formKuer="ngForm" class="form-horizontal" novalidate>
+    <div>
+      <label>用户名：</label>
+      <input type="text" name="userName" [(ngModel)]="user.userName" #userName="ngModel" required>
+      <div *ngIf="formKuer.submitted && !userName.valid">用户名必须输入</div>
+    </div>
+    <div>
+      <label>密码：</label>
+      <input type="password" minlength="8" placeholder="请输入登录密码" name="password" [(ngModel)]="user.password" #password="ngModel" required>
+      <div *ngIf="formKuer.submitted && !password.valid">密码必须输入，至少8位</div>
+    </div>
+    <div>
+      <div>
+        <label>
+          记住我：
+        </label>
+        <input type="checkbox" name="remeberMe" [(ngModel)]="user.remeberMe" #remeberMe="ngModel">
+      </div>
+    </div>
+    <div>
+        <button type="submit">登录</button>
+    </div>
+  </form>
+</div>

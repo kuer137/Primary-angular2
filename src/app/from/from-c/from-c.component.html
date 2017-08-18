@@ -1,0 +1,11 @@
+<h2>动态表单</h2>
+<div>
+  <form [formGroup]="form">
+    <div *ngFor="let field of fields">
+      <form-control [form]="form" [field]="field"></form-control>
+    </div>
+    <div>
+      <button>保存</button>
+    </div>
+  </form>
+</div>

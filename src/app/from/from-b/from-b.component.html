@@ -1,0 +1,40 @@
+<div class="panel-body">
+  <form [formGroup]="kuerForms" class="form-horizontal" role="form" novalidate>
+    <div>
+      <label>用户名：</label>
+      <input type="text" name="userName" formControlName="userName" value="{{ userIngo.userName }}">
+      <span *ngIf="formErrors.userName">{{ formErrors.userName }}</span>
+    </div>
+    <div>
+      <label>昵称：</label>
+      <input type="text" name="nickName" formControlName="nickName" value="{{ userIngo.nickName }}">
+      <span *ngIf="formErrors.nickName">{{ formErrors.nickName }}</span>
+    </div>
+    <div [ngClass]="{'has-error':formErrors.email}">
+      <label>email：</label>
+      <input type="email" name="email" formControlName="email" value="{{ userIngo.email }}">
+      <span *ngIf="formErrors.email">{{ formErrors.email }}</span>
+    </div>
+    <div>
+      <label>密码：</label>
+      <input type="password" name="password"  formControlName="password" firstPass = true kuerDataEqual="confirmPassword" value="">
+      <span *ngIf="formErrors.password">{{ formErrors.password }}</span>
+    </div>
+    <div>
+      <label>再次输入密码：</label>
+      <input type="password" name="confirmPassword" formControlName="confirmPassword" kuerDataEqual="password">
+      <span *ngIf="formErrors.confirmPassword">{{ formErrors.confirmPassword }}</span>
+    </div>
+    <div>
+      <label>验证码：</label>
+      <input type="number" name="vcode" formControlName="vcode" placeholder="请输入验证码">
+      <span>{{ formErrors.vcode }}</span>
+    </div>
+    <div *ngIf="formErrors.formError" class="col-sm-offset-3 col-sm-8 alert alert-danger">{{ formErrors.formError }}</div>
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-8">
+        <button [disabled]="kuerForms.invalid" type="submit" class="btn btn-success">提交</button>
+      </div>
+    </div>
+  </form>
+</div>

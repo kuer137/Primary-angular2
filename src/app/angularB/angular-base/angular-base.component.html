@@ -1,0 +1,24 @@
+<div>
+  <button (click)="html1()">点我</button>
+  <p>{{ message }}</p>
+</div>
+
+<div>
+  <input type="text" (keyup)="html2($event)">
+  <p>{{ message2 }}</p>
+</div>
+<div>
+  <p>从一个模板引用变量中获得用户输入：</p>
+  <input type="text" #message3 (keyup)="html3()">
+  <p>{{ message3.value }}</p>
+</div>
+<div>
+  <p>按回车事件的时候才输出值：</p>
+  <input type="text" #message4 (keyup.enter)="messa=message4.value">
+  <p>{{ messa }}</p>
+</div>
+<div>
+  <p>失去焦点和回车都会触发的事件：</p>
+  <input type="text" #message5 (keyup.enter)="values=message5.value" (blur)="values=message5.value">
+  <p>{{ values }}</p>
+</div>

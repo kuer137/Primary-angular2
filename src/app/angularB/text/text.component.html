@@ -1,0 +1,45 @@
+<div class="container">
+  <h3>表单</h3>
+  <div [hidden]="submitted">
+    <form *ngIf="true" (ngSubmit)="onSubmit()" #kuerForm="ngForm">
+      <!--这个 kuerForm 变量现在引用的是 NgForm 指令，它代表的是表单的整体。-->
+      <div class="form-group">
+        <label for="name">网站名称：</label>
+        <input type="text" id="name" name="name" class="form-control" [(ngModel)]="model.name" #kuername="ngModel" required>
+        <p [hidden]="kuername.valid || kuername.pristine" class="alert alert-danger">网站名是必需的！</p>
+        <!--值改变或值有效的时候隐藏，需要变量#kuername绑定ngModel才可以-->
+      </div>
+      <div class="form-group">
+        <label for="alterEgo">alexa排名</label>
+        <input type="number" class="form-control" id="alterEgo" name="alterEgo" [(ngModel)]="model.alexa" #kueralexa="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="url">网站url：</label>
+        <select name="url" id="url" class="form-control" [(ngModel)]="model.url">
+          <option [value]="p" *ngFor="let p of urls">{{ p }}</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-default" (click)="addSide()">添加网站</button>
+      <button type="submit" class="btn btn-default" [disabled]="!kuerForm.form.valid">提交</button>
+      <p>{{ returndata }}</p>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h2>你提交的信息如下：</h2>
+    <div class="row">
+      <div class="col-xs-3">网站名</div>
+      <div class="col-xs-9 pull-left">{{ model.name }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">排名</div>
+      <div class="col-xs-9 pull-left">{{ model.alexa }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">url</div>
+      <div class="col-xs-9 pull-left">{{ model.url }}</div>
+    </div>
+    <button (click)="submitted = !submitted">管理网站 </button>
+    <!--显示回编辑页-->
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="container" [@flyIn] = "active">
+    <p>
+      动画了？
+      kuer-user works!
+      oH my guy
+    </p>
+    <div>测试事件绑定和数据双向绑定输出</div>
+    <input type="text" [(ngModel)]="searchText" (change)="searchange($event)">
+    <p>{{ searchText }}</p>
+
+    <app-changdata kuerTitle="我在kuer-user.component.html哩"  (followaaaa) = "dofollow()"></app-changdata>
+</div>
+

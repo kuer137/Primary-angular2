@@ -1,0 +1,12 @@
+<div>
+  <p style="color: red;">-----这里是对面Promise和observable-----</p>
+  <div>
+    <p class="text-promise">这里是promise的数据(5秒)： <span id="promise"></span></p>
+    <p class="text-observable">这里是observable的数据(5秒(两秒后取消))： <span id="observable"></span></p>
+    <p class="text-observable">这里是observable的数据(每1秒发送一次)： <span id="observable1"></span></p>
+    <button (click)="test()">发送请求</button>
+    <button (click)="text2()">rxjs测试</button>
+    <button (click)="text3()">rxjs测试错误抓取</button>
+    <input type="search" placeholder="搜索框" [(ngModel)]="keyword" (keyup)="searchChanged($event)">
+  </div>
+</div>

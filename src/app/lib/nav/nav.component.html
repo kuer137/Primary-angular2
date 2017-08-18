@@ -1,0 +1,15 @@
+
+<div class="container">
+  <ul class="nav nav-pills">
+    <li role="presentation" [ngClass]="{'active':action==1}"><a  routerLink="page/1" (click)="actions(1)">分页</a></li>
+    <li role="presentation" [ngClass]="{'active':action==2}"><a  routerLink="layer" (click)="actions(2)">layer</a></li>
+    <li role="presentation" [ngClass]="{'active':action==3}"><a  routerLink="date" (click)="actions(3)">date</a></li>
+    <li role="presentation" [ngClass]="{'active':action==6}"><a  routerLink="time" (click)="actions(6)">time-picker</a></li>
+    <li role="presentation" [ngClass]="{'active':action==4}"><a  routerLink="uploader" (click)="actions(4)">uploader</a></li>
+    <li role="presentation" [ngClass]="{'active':action==5}"><a  routerLink="charts" (click)="actions(5)">charts</a></li>
+  </ul>
+</div>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

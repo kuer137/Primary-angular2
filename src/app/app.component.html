@@ -1,0 +1,46 @@
+<ol class="breadcrumb">
+  <li>{{ welcome }}</li>
+  <li class="active">{{ dates | date:'yyyy-MM-dd HH:mm:ss' }}</li>
+</ol>
+<!-- 顶部导航 -->
+<div class="ku-topHead">
+    <ul class="nav nav-pills">
+        <li routerLinkActive="active"><a routerLink="angular">Angular基础</a></li>
+        <li><a routerLink="kuerUser">kuer-user</a></li>
+        <li><a [routerLink]="['jquery',1,6]">jquery</a></li>
+        <li><a routerLink="from">from</a></li>
+        <li><a routerLink="fromtext">fromtext</a></li>
+        <li><a routerLink="rxjs">rxjs异步</a></li>
+        <li><a routerLink="lib">插件</a></li>
+    </ul>
+    <ul *ngIf="!currentUser?.userName" class="nav navbar-right navbar-nav">
+      <li>
+        <a routerLink="login" href="javascript:;">登录</a>
+      </li>
+    </ul>
+    <ul *ngIf="currentUser?.userName" class="nav navbar-right navbar-nav">
+      <li>
+        <a (click)="doLogout()" href="javascript:;">退出</a>
+      </li>
+      <li>
+        <a href="javascript:;">用户名：{{ currentUser?.userName }}</a>
+      </li>
+    </ul>
+</div>
+<!--<div><app-kuer-user></app-kuer-user></div>-->
+<app-changdata kuerTitle="我在app.component.html哩"  (followaaaa) = "dofollowb()"></app-changdata>
+<div class="container">
+  <p class="{{ 2 | fliternumber }}">我是2我应该是黑色</p>
+  <p class="{{ 1 | fliternumber }}">我是1我应该是红色</p>
+</div>
+<!--<ul class="list-unstyled ku-w1200">-->
+  <!--<li>{{title}}</li>-->
+  <!--<li>{{hero}}</li>-->
+  <!--<li>Item 3</li>-->
+  <!--<li>Item 4</li>-->
+<!--</ul>-->
+<p style="color: #0000ed;font-size: 20px;">z这里是放内容的</p>
+<div>
+  <router-outlet></router-outlet>
+</div>
+<a style="color: #0000ed;font-size: 20px;" routerLink="route">去二级菜单</a>
